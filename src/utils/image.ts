@@ -14,7 +14,7 @@ export function computeBoxLocation(left: number, top: number, width: number, hei
       return [partValues[0], partValues[1], partValues[2] - partValues[0], partValues[3] - partValues[1]]
     }
   }
-  if (top && left && height && width) {
+  if (top !== undefined && left !== undefined && height !== undefined && width !== undefined) {
     return [left, top, width, height]
   }
   return null

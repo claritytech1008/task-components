@@ -1,7 +1,7 @@
 {
   "name": "task-components",
-  "version": "0.1.0-alpha.1",
-  "description": "Components for crowdwork tasks (i.e. MTurk)",
+  "version": "0.1.0-alpha.7",
+  "description": "Components for crowdwork tasks (i.e. MTurk, Task Assembly)",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.4.2",
-    "@stencil/core": "^4.12.5",
+    "@stencil/core": "^4.21.0",
     "classnames": "^2.3.2",
     "marked": "^4.3.0"
   },
@@ -35,7 +35,7 @@
     "@blueprintjs/core": "^5.2.0",
     "@blueprintjs/icons": "^5.1.5",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
+    "@types/node": "^16.18.108",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "puppeteer": "^19.5.2",

@@ -4,6 +4,9 @@ export const config: Config = {
   namespace: 'task-components',
   globalStyle: 'src/global/global.css',
   buildEs5: 'prod',
+  devServer: {
+    port: 3334
+  },
   outputTargets: [
     {
       type: 'dist',

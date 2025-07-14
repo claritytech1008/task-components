@@ -22,6 +22,11 @@ export function gatherInputOptions(parent: HTMLElement) {
     .filter(n => Array.from(parent.children).includes(n))
 }
 
+export function gatherVertices(parent: HTMLElement) {
+  return Array.from(parent.getElementsByTagName("task-image-vertex"))
+    .filter(n => Array.from(parent.children).includes(n))
+}
+
 export function inputOptionKeyboardShortcuts(options: HTMLTaskInputOptionElement[]): KeyboardShortcut[] {
   const shortcuts: KeyboardShortcut[] = []
   for (let option of options) {

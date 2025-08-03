@@ -202,6 +202,7 @@ export class TaskImage {
         <div class="zoomBox" style={zoomStyle}>
           <canvas ref={el => this.zoomCanvas = el} width={this.zBoxSize} height={this.zBoxSize}/>
         </div>
+        <slot></slot>
       </Host>
     );
   }

@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Element, Method } from '@stencil/core';
+import { Component, Host, h, Prop, State, Element } from '@stencil/core';
 import { gatherVertices } from '../../utils/utils';
 
 @Component({
@@ -11,6 +11,7 @@ export class TaskImagePolygon {
   @Prop() color: string = "green"
   @State() location: number[]
   vertexArray: Array<any> = [];
+  canvasElement!: HTMLCanvasElement
 
   vertices: Element[];
   @Element() host: HTMLElement
@@ -22,30 +23,40 @@ export class TaskImagePolygon {
         this.vertexArray.push([vertex.getAttribute("x"), vertex.getAttribute("y")])        
       }
     })
+    console.log(this.vertexArray.length)
+  }
+  componentDidLoad(){
+    this.drawBox();
   }
 
-  @Method()
-  async drawBox(context: CanvasRenderingContext2D) {
-    if (this.vertexArray) {
-      context.beginPath()
-      context.lineWidth = this.lineWidth
-      context.strokeStyle = this.color
-      context.lineJoin = 'round'; 
-      context.moveTo(this.vertexArray[0][0], this.vertexArray[0][1])
+  drawBox() {
+    console.log("in")
+    if(this.canvasElement) {
+      console.log("started")
+      let context = this.canvasElement.getContext("2d")
+      if (this.vertexArray) {
+        context.beginPath()
+        context.lineWidth = this.lineWidth
+        context.strokeStyle = this.color
+        context.lineJoin = 'round'; 
+        context.moveTo(this.vertexArray[0][0], this.vertexArray[0][1])
 
-      for(let i=1;i<this.vertexArray.length;i++){
-        context.lineTo(this.vertexArray[i][0], this.vertexArray[i][1])
+        for(let i=1;i<this.vertexArray.length;i++){
+          context.lineTo(this.vertexArray[i][0], this.vertexArray[i][1])
+        }
+
+        context.closePath()
+        context.stroke()
+        console.log("finished")
       }
-
-      context.closePath()
-      context.stroke()
+      console.log("out")
     }
   }
 
   render() {
     return (
       <Host>
-        <slot></slot>
+        <canvas ref={el => this.canvasElement = el}/>
       </Host>
     );
   }

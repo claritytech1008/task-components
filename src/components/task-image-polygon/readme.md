@@ -10,7 +10,7 @@
 | Property    | Attribute    | Description | Type     | Default   |
 | ----------- | ------------ | ----------- | -------- | --------- |
 | `color`     | `color`      |             | `string` | `"green"` |
-| `lineWidth` | `line-width` |             | `number` | `5`       |
+| `lineWidth` | `line-width` |             | `number` | `3`       |
 
 
 ----------------------------------------------

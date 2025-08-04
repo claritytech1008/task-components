@@ -7,7 +7,7 @@ import { gatherVertices } from '../../utils/utils';
   scoped: true,
 })
 export class TaskImagePolygon {
-  @Prop() lineWidth: number = 5
+  @Prop() lineWidth: number = 3
   @Prop() color: string = "green"
   @State() location: number[]
   vertexArray: Array<any> = [];
@@ -30,9 +30,9 @@ export class TaskImagePolygon {
   }
 
   drawBox() {
-    console.log("in")
     if(this.canvasElement) {
-      console.log("started")
+      this.canvasElement.width = window.innerWidth
+      this.canvasElement.height = window.innerHeight
       let context = this.canvasElement.getContext("2d")
       if (this.vertexArray) {
         context.beginPath()
@@ -47,9 +47,7 @@ export class TaskImagePolygon {
 
         context.closePath()
         context.stroke()
-        console.log("finished")
       }
-      console.log("out")
     }
   }
 
